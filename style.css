@@ -1,0 +1,104 @@
+/****************************************************************************
+ * Copyright (C) 2004 Leonid Zolotarev
+ *
+ * LeoZ Main.
+ *
+ * $Id: style.css 10 2006-03-21 22:40:56Z leoz $
+ ***************************************************************************/
+
+body {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	background-color: #ffffff;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 0.8em;
+	text-decoration: none;
+}
+
+#header {
+	font-size: 3em;
+	font-family: Verdana, sans-serif;
+	color: #5C8C9A;
+	text-align: center;
+	margin: 5px;
+	padding: 5px;
+}
+
+#left_bar {
+	background-color: #5C8C9A;
+	float: left;
+	width: 140px;
+	margin-top: 0;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px;
+	font-size: 1em;
+	color: #ffffff;
+}
+
+#left_bar a:link {
+	color: #ffffff;
+	background: transparent;
+}
+
+#left_bar a:hover, a:visited:hover {
+	color: #ffffff;
+	background: transparent;
+}
+
+#left_bar a:active {
+	color: #ffffff;
+}
+
+#left_bar a:visited {
+	color: #ffffff;
+	background: transparent;
+}
+
+#main {
+	margin-left: 160px;
+	padding: 1em;
+	max-width: 50em;
+	font-size: 12px;
+}
+
+#main h2 {
+	margin: 1em;
+	font-family: Georgia, sans-serif;
+	font-size: 1.7em;
+	border-bottom: solid 1px #5C8C9A;
+}
+
+#footer {
+	border-top: 1px solid #5C8C9A;
+	font-size: .7em;
+	font-family: Verdana, sans-serif;
+	color: #5C8C9A;
+	text-align: center;
+	clear: both;
+	margin: 5px;
+	padding: 5px;
+}
+
+a:link {
+	color: #000000;
+	background: transparent;
+}
+
+a:hover, a:visited:hover {
+	color: #000000;
+	background: transparent;
+}
+
+a:active {
+	color: #000000;
+}
+
+a:visited {
+	color: #000000;
+	background: transparent;
+}
