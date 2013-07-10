@@ -1,0 +1,115 @@
+/****************************************************************************
+ * Copyright (C) 2004-2005 Leonid Zolotarev
+ *
+ * LeoZ : info.
+ *
+ * $Id: style.css 10 2006-03-21 22:40:56Z leoz $
+ ***************************************************************************/
+
+body {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	background-color: #ededed;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 0.8em;
+	text-decoration: none;
+}
+
+#header {
+	font-size: 3em;
+	font-family: Verdana, sans-serif;
+	color: #396da5;
+	text-align: center;
+	margin: 5px;
+	padding: 5px;
+}
+
+#left_bar {
+	background-color: #d1dce7;
+	float: left;
+	width: 160px;
+	margin-top: 0;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px;
+	font-size: 1em;
+	color: #396da5;
+}
+
+#left_bar a:link {
+	color: #396da5;
+	background: transparent;
+}
+
+#left_bar a:hover, a:visited:hover {
+	color: #396da5;
+	background: transparent;
+}
+
+#left_bar a:active {
+	color: #396da5;
+}
+
+#left_bar a:visited {
+	color: #396da5;
+	background: transparent;
+}
+
+#main {
+	margin-left: 180px;
+	padding-top: 0;
+	padding-bottom: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
+	max-width: 50em;
+	font-size: 12px;
+}
+
+#main h2 {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 0px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+	margin-right: 5px;
+	font-family: Verdana, sans-serif;
+	font-size: 1.5em;
+	color: #396da5;
+	background-color: #d1dce7;
+}
+
+#footer {
+	border-top: 1px solid #396da5;
+	font-size: .7em;
+	font-family: Verdana, sans-serif;
+	color: #396da5;
+	text-align: center;
+	clear: both;
+	margin: 5px;
+	padding: 5px;
+}
+
+a:link {
+	color: #000000;
+	background: transparent;
+}
+
+a:hover, a:visited:hover {
+	color: #000000;
+	background: transparent;
+}
+
+a:active {
+	color: #000000;
+}
+
+a:visited {
+	color: #000000;
+	background: transparent;
+}

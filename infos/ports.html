@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+          "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="en">
+<head>
+	<link href="style.css" rel="stylesheet" type="text/css"/>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	<meta name="generator" content="LeoZ"/>
+	<meta name="description" content="LeoZ ORG - notes about Linux and FreeBSD related topics"/>
+	<meta name="keywords" content="LeoZ, Leonid, Zolotarev, Linux, FreeBSD, info, files"/>
+	<meta name="author" content="Leonid Zolotarev"/>
+	<title>LeoZ ORG : info</title>
+</head>
+<body>
+<div id="header">
+LeoZ ORG : info
+</div>
+<div id="container">
+<div id="content">
+<div id="left_bar">
+	<h3><a href="../index.php">Home</a></h3>
+	<h3>Contents</h3>
+	<div id="contents">
+	<ul>
+		<li><a href="index.html">Index</a></li>
+		<li><b>Ports Update</b></li>
+		<li><a href="config.html">Configuration</a></li>
+		<li><a href="gnome.html">Gnome Install</a></li>
+		<li><a href="winboot.html">Boot Loader Tricks</a></li>
+	</ul>
+	</div>
+	<h3><a href="mailto:leoz.2005@gmail.com">Contact</a></h3>
+</div>
+<div id="main">
+
+<h2>Ports Update</h2>
+<p>Following procedure is used by me to setup and update FreeBSD ports.</p>
+<p>Basic steps:</p>
+<ol>
+  <li> Install <span style="font-weight: bold;">cvsup-without-gui</span>
+via port
+    <pre># cd /usr/ports/net/cvsup-without-gui<br># make install clean<br></pre>
+or package <br>
+    <pre># pkg_add -r cvsup-without-gui</pre>
+  </li>
+  <li>Create <tt>/etc/make.conf</tt>
+file or just copy
+one which is used by me: <a href="../files/bsd/etc/make.conf">make.conf</a>
+    <br>
+    <br>
+You would also need <a href="../files/bsd/root/update/stable-supfile">stable-supfile</a>
+and <a href="../files/bsd/root/update/ports-supfile">ports-supfile</a>
+files <br>
+to be copied to <tt>/root/update/</tt>
+directory<br>
+    <pre># cd /root<br># mkdir update<br># cp path_to_the_directory/stable-supfile update<br># cp path_to_the_directory/ports-supfile update<br></pre>
+    <br>
+  </li>
+  <li>Update ports:<br>
+    <pre># cd /usr/ports<br># make update</pre>
+  </li>
+  <li>Now you have updated ports
+tree.<br>
+Next steps will update <span style="text-decoration: underline;">installed</span>
+ports or packages.<br>
+First you need to install <span style="font-weight: bold;">portupgrade</span><br>
+    <pre># cd /usr/ports/sysutils/portupgrade<br># make install clean</pre>
+  </li>
+  <li>Update ports database
+    <pre># pkgdb -F</pre>
+  </li>
+  <li>You can check ports to be
+upgraded with command
+    <pre>pkg_version -v |grep -v up-to-date |less</pre>
+Update installed ports or
+packages
+    <pre># portupgrade -a</pre>
+  </li>
+  <li>Now
+your installed ports are updated.<br>
+If something went wrong repeat steps 3-6.<br>
+For more info see <span style="font-weight: bold;">man portupgrade</span>.
+  </li>
+</ol>
+<p>Some notes:</p>
+<ul>
+  <li>You need to have ports tree
+installed on your system.</li>
+  <li>Your actual <span style="font-weight: bold;">make.conf</span>
+file could be very different from the one provided by me.</li>
+  <li>Main point is that this <span style="font-weight: bold;">make.conf</span>
+has a reference to the <span style="font-weight: bold;">ports-supfile</span>
+which is used by <span style="font-weight: bold;">cvsup</span>
+for to update the ports.</li>
+  <li>You can put <span style="font-weight: bold;">supfiles</span>
+wherever you like or alternatively you can modify these which come with
+the system, just update the reference in your <span
+ style="font-weight: bold;">make.conf</span>.</li>
+  <li>Set cvsup server name in the <span style="font-weight: bold;">supfiles</span>
+and the <span style="font-weight: bold;">make.conf </span>to the one
+which is
+closer to your current location.</li>
+  <li>In <span style="font-weight: bold;">make.conf</span>
+set value of<br>
+    <pre>KERNCONF=OSBORNE</pre>
+to the actual name of the kernel file on your system.<br>
+It is needed for
+to update base system. </li>
+  <li>Use <span style="font-weight: bold;">fastest_cvsup</span>
+for to detect the one:
+    <pre># cd /usr/ports/sysutils/fastest_cvsup<br># make install clean</pre>
+  </li>
+  <li><span style="font-weight: bold;"> stable-supfile</span>
+is needed
+if you are going to update the base system.</li>
+  <li><span style="font-weight: bold;">portupgrade</span>
+could be used for to install a <span
+ style="text-decoration: underline;">new</span>
+port. For example:<br>
+    <pre># portinstall nedit</pre>
+  </li>
+  <li>I have some command aliased
+in my <a href="../files/bsd/root/.cshrc">.cshrc</a>.
+You can use it as
+a reference for this subject.<br>
+  </li>
+  <li>For advanced setup tricks see <a href="config.html">Configuration</a> and <a href="gnome.html">Gnome Install</a>.</li>
+</ul>
+<p>References:</p>
+<ul>
+  <li> <a href="http://jk.yazzy.org/unmaintained/articles/freebsd/up-to-date-with-freebsd.php">"Up-to-date with FreeBSD" by Jochem Kossen.</a></li>
+</ul>
+</div>
+<div id="footer">
+&copy; 2004-2006 Leonid Zolotarev. All rights reserved. <br>
+$Id: ports.php 11 2006-03-21 22:52:56Z leoz $
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+          "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="en">
+<head>
+	<link href="style.css" rel="stylesheet" type="text/css"/>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	<meta name="generator" content="LeoZ"/>
+	<meta name="description" content="LeoZ ORG - notes about Linux and FreeBSD related topics"/>
+	<meta name="keywords" content="LeoZ, Leonid, Zolotarev, Linux, FreeBSD, info, files"/>
+	<meta name="author" content="Leonid Zolotarev"/>
+	<title>LeoZ ORG : info</title>
+</head>
+<body>
+<div id="header">
+LeoZ ORG : info
+</div>
+<div id="container">
+<div id="content">
+<div id="left_bar">
+	<h3><a href="../index.php">Home</a></h3>
+	<h3>Contents</h3>
+	<div id="contents">
+	<ul>
+		<li><a href="index.html">Index</a></li>
+		<li><a href="ports.html">Ports Update</a></li>
+		<li><a href="config.html">Configuration</a></li>
+		<li><a href="gnome.html">Gnome Install</a></li>
+		<li><b>Boot Loader Tricks</b></li>
+	</ul>
+	</div>
+	<h3><a href="mailto:leoz.2005@gmail.com">Contact</a></h3>
+</div>
+<div id="main">
+
+<h2>How to use windows bootloader to boot several operating systems</h2>
+<ol>
+
+<li>Install Windows to some free primary partition.</li>
+<li>Install FreeBSD to another free primary partition on the same hard disk.</li>
+<li>During FreeBSD installation do not install a boot manager:<br>
+    "Leave the master Boot Record untouched".</li>
+<li>Boot to FreeBSD and perform that command:<br>
+    <pre>dd if=/dev/ad0s1 of=bootsect.bsd bs=512 count=1</pre></li>
+<li>Note that <span style="font-weight: bold;">ad0s1</span>
+    is a slice where you installed FreeBSD.<br>
+    It could have a different number in your case.</li>
+<li>Copy <span style="font-weight: bold;">bootsect.bsd</span>
+    to the floppy disk or some shared media.</li>
+<li>Run <span style="font-weight: bold;">fdisk</span>
+    and set Windows partition bootable.</li>
+<li>Reboot and boot to Windows.</li>
+<li>Copy <span style="font-weight: bold;">bootsect.bsd</span>
+    to <span style="font-weight: bold;">C:\.</span></li>
+<li>Edit <span style="font-weight: bold;">C:\boot.ini</span>
+    file and add this line to the end:<br>
+    <pre>C:\BOOTSECT.BSD="FreeBSD"</pre></li>
+<li>Reboot.</li>
+<li>Enjoy.</li>
+
+</ol>
+</div>
+<div id="footer">
+&copy; 2005-2006 Leonid Zolotarev. All rights reserved. <br>
+$Id: winboot.php 11 2006-03-21 22:52:56Z leoz $
+</div>
+</body>
+</html>
